@@ -6,7 +6,7 @@ export default function AboutPage() {
     <>
       {/* Hero Section */}
       <section className="relative">
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/15 to-primary/10 z-5" />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-primary/8 z-4" />
         <Image
           src="/ab01.jpg?height=400&width=1200"
           alt="CHOCHINCHICKEN restaurant interior"
