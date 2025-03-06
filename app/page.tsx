@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { ChevronRight, Link } from "lucide-react";
+import Link from "next/link";
+import { ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { TestimonialCard } from "@/components/testimonial-card";
 
