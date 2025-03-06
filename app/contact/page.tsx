@@ -22,6 +22,7 @@ import {
 } from "@/components/ui/select";
 import { cn } from "@/lib/utils";
 import { format } from "date-fns";
+import Image from "next/image";
 
 export default function ContactPage() {
   const [date, setDate] = useState<Date>();
@@ -38,23 +39,33 @@ export default function ContactPage() {
     <>
       {/* Hero Section */}
       <section className="relative">
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary/40 z-10" />
-        <div className="w-full h-[40vh] bg-muted" />
-        <div className="container absolute inset-0 z-20 flex flex-col justify-center text-white">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Contact Us</h1>
-          <p className="text-lg max-w-2xl">
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/12 to-primary/9 z-5" />
+        <Image
+          src="/ab01.jpg?height=400&width=1200"
+          alt="CHOCHINCHICKEN restaurant interior"
+          width={1200}
+          height={400}
+          className="w-full h-[40vh] object-cover"
+        />
+        <div className="container absolute inset-0 z-20 flex flex-col justify-center text-white px-4 md:px-6">
+          <h1 className="text-3xl md:text-5xl font-bold mb-2 md:mb-4">
+            Contact Us
+          </h1>
+          <p className="text-base md:text-lg max-w-2xl">
             Make a reservation or get in touch with our team.
           </p>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section className="py-16">
-        <div className="container">
-          <div className="grid md:grid-cols-2 gap-12">
+      <section className="py-8 md:py-16">
+        <div className="container px-4 md:px-6">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12">
             <div>
-              <h2 className="text-3xl font-bold mb-6">Get in Touch</h2>
-              <p className="mb-8 text-muted-foreground">
+              <h2 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6">
+                Get in Touch
+              </h2>
+              <p className="mb-6 md:mb-8 text-muted-foreground">
                 We'd love to hear from you! Whether you have a question about
                 our menu, want to make a reservation, or are interested in
                 catering services, our team is here to help.
@@ -94,7 +105,7 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <div className="bg-muted/30 rounded-lg p-6">
+            <div className="bg-muted/30 rounded-lg p-4 md:p-6">
               <h3 className="text-xl font-bold mb-4">Make a Reservation</h3>
 
               {submitted ? (
@@ -111,7 +122,7 @@ export default function ContactPage() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="name">Full Name</Label>
                       <Input id="name" placeholder="Your name" required />
@@ -132,7 +143,7 @@ export default function ContactPage() {
                     />
                   </div>
 
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label>Date</Label>
                       <Popover>
