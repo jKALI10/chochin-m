@@ -1,28 +1,38 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState } from "react"
-import { CalendarIcon, Clock, MapPin, Phone } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Calendar } from "@/components/ui/calendar"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { cn } from "@/lib/utils"
-import { format } from "date-fns"
+import { useState } from "react";
+import { CalendarIcon, Clock, MapPin, Phone } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Calendar } from "@/components/ui/calendar";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { cn } from "@/lib/utils";
+import { format } from "date-fns";
 
 export default function ContactPage() {
-  const [date, setDate] = useState<Date>()
-  const [submitted, setSubmitted] = useState(false)
+  const [date, setDate] = useState<Date>();
+  const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
     // In a real app, you would handle the form submission here
-    setSubmitted(true)
-    setTimeout(() => setSubmitted(false), 3000)
-  }
+    setSubmitted(true);
+    setTimeout(() => setSubmitted(false), 3000);
+  };
 
   return (
     <>
@@ -32,7 +42,9 @@ export default function ContactPage() {
         <div className="w-full h-[40vh] bg-muted" />
         <div className="container absolute inset-0 z-20 flex flex-col justify-center text-white">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Contact Us</h1>
-          <p className="text-lg max-w-2xl">Make a reservation or get in touch with our team.</p>
+          <p className="text-lg max-w-2xl">
+            Make a reservation or get in touch with our team.
+          </p>
         </div>
       </section>
 
@@ -43,8 +55,9 @@ export default function ContactPage() {
             <div>
               <h2 className="text-3xl font-bold mb-6">Get in Touch</h2>
               <p className="mb-8 text-muted-foreground">
-                We'd love to hear from you! Whether you have a question about our menu, want to make a reservation, or
-                are interested in catering services, our team is here to help.
+                We'd love to hear from you! Whether you have a question about
+                our menu, want to make a reservation, or are interested in
+                catering services, our team is here to help.
               </p>
 
               <div className="space-y-6">
@@ -52,7 +65,9 @@ export default function ContactPage() {
                   <MapPin className="h-6 w-6 flex-shrink-0 mt-0.5 text-primary" />
                   <div>
                     <h3 className="font-bold">Location</h3>
-                    <p className="text-muted-foreground">Bole Road, Near Millennium Hall, Addis Ababa, Ethiopia</p>
+                    <p className="text-muted-foreground">
+                      Bole Road, Near Millennium Hall, Addis Ababa, Ethiopia
+                    </p>
                   </div>
                 </div>
 
@@ -60,7 +75,9 @@ export default function ContactPage() {
                   <Clock className="h-6 w-6 flex-shrink-0 mt-0.5 text-primary" />
                   <div>
                     <h3 className="font-bold">Opening Hours</h3>
-                    <p className="text-muted-foreground">Monday - Sunday: 11:00 AM - 10:00 PM</p>
+                    <p className="text-muted-foreground">
+                      Monday - Sunday: 11:00 AM - 10:00 PM
+                    </p>
                   </div>
                 </div>
 
@@ -69,15 +86,10 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-bold">Contact</h3>
                     <p className="text-muted-foreground">+251 11 234 5678</p>
-                    <p className="text-muted-foreground">info@chochinchicken.com</p>
+                    <p className="text-muted-foreground">
+                      info@chochinchicken.com
+                    </p>
                   </div>
-                </div>
-              </div>
-
-              <div className="mt-8">
-                <h3 className="font-bold mb-4">Find Us</h3>
-                <div className="bg-muted h-[300px] rounded-lg flex items-center justify-center">
-                  <p className="text-muted-foreground">Map would be displayed here</p>
                 </div>
               </div>
             </div>
@@ -93,7 +105,8 @@ export default function ContactPage() {
                   <strong className="font-bold">Thank you!</strong>
                   <span className="block sm:inline">
                     {" "}
-                    Your reservation request has been received. We'll contact you shortly to confirm.
+                    Your reservation request has been received. We'll contact
+                    you shortly to confirm.
                   </span>
                 </div>
               ) : (
@@ -111,7 +124,12 @@ export default function ContactPage() {
 
                   <div className="space-y-2">
                     <Label htmlFor="email">Email</Label>
-                    <Input id="email" type="email" placeholder="your@email.com" required />
+                    <Input
+                      id="email"
+                      type="email"
+                      placeholder="your@email.com"
+                      required
+                    />
                   </div>
 
                   <div className="grid grid-cols-2 gap-4">
@@ -123,7 +141,7 @@ export default function ContactPage() {
                             variant="outline"
                             className={cn(
                               "w-full justify-start text-left font-normal",
-                              !date && "text-muted-foreground",
+                              !date && "text-muted-foreground"
                             )}
                           >
                             <CalendarIcon className="mr-2 h-4 w-4" />
@@ -131,7 +149,12 @@ export default function ContactPage() {
                           </Button>
                         </PopoverTrigger>
                         <PopoverContent className="w-auto p-0">
-                          <Calendar mode="single" selected={date} onSelect={setDate} initialFocus />
+                          <Calendar
+                            mode="single"
+                            selected={date}
+                            onSelect={setDate}
+                            initialFocus
+                          />
                         </PopoverContent>
                       </Popover>
                     </div>
@@ -176,7 +199,10 @@ export default function ContactPage() {
 
                   <div className="space-y-2">
                     <Label htmlFor="special">Special Requests</Label>
-                    <Input id="special" placeholder="Any special requests or dietary requirements" />
+                    <Input
+                      id="special"
+                      placeholder="Any special requests or dietary requirements"
+                    />
                   </div>
 
                   <Button type="submit" className="w-full">
@@ -189,6 +215,5 @@ export default function ContactPage() {
         </div>
       </section>
     </>
-  )
+  );
 }
-
